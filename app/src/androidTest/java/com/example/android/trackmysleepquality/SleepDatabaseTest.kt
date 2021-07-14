@@ -22,6 +22,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.example.android.trackmysleepquality.database.SleepDatabase
 import com.example.android.trackmysleepquality.database.SleepDatabaseDao
 import com.example.android.trackmysleepquality.database.SleepNight
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -59,9 +60,10 @@ class SleepDatabaseTest {
         db.close()
     }
 
+
     @Test
     @Throws(Exception::class)
-    suspend fun insertAndGetNight(){
+    fun insertAndGetNight() = runBlocking {
         val night = SleepNight()
         sleepDao.insert(night)
         val tonight = sleepDao.getTonight()
