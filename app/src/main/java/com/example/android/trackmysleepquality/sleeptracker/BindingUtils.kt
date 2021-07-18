@@ -23,7 +23,7 @@ fun TextView.setSleepQualityString(item: SleepNight?){
 }
 
 @BindingAdapter("sleepImage")
-fun ImageView.setSleepImage(item: SleepNight){
+fun ImageView.setSleepImage(item: SleepNight?){
     item?.let {
         setImageResource(when(item.sleepQuality) {
 
